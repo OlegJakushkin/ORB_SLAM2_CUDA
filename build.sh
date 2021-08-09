@@ -31,7 +31,8 @@ mkdir -p build
 cd build
 cmake .. \
 	-DCMAKE_BUILD_TYPE=Release \
-	-DPYTHON_EXECUTABLE:FILEPATH=/usr/bin/python3
+	-DPYTHON_EXECUTABLE:FILEPATH=/usr/bin/python3 \
+	-DCMAKE_CXX_FLAGS=-isystem\ /usr/local/cuda-10.2/samples/common/inc
 	
 make -j$(nproc)
 make install
