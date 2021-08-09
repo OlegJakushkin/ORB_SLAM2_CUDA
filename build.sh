@@ -14,7 +14,7 @@ echo "Configuring and building Thirdparty/g2o ..."
 
 mkdir -p build
 cd build
-cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS=-isystem\ /usr/local/cuda-10.2/samples/Common
+cmake .. -DCMAKE_BUILD_TYPE=Release
 
 make -j$(nproc)
 
@@ -33,7 +33,6 @@ cd build
 cmake .. \
 	-DCMAKE_BUILD_TYPE=Release \
 	-DPYTHON_EXECUTABLE:FILEPATH=/usr/bin/python3 \
-	-DCMAKE_CXX_FLAGS=-isystem\ /usr/local/cuda-10.2/samples/Common
 	
 make -j$(nproc)
 make install
