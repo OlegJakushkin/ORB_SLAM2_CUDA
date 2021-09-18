@@ -16,7 +16,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 LIST(APPEND CMAKE_C_FLAGS "-Wall -Wextra -DUSE_NVTX")
 LIST(APPEND CMAKE_CXX_FLAGS "-Wall -Wextra -DUSE_NVTX")
 
-find_package(CUDA QUIET REQUIRED)
+find_package(CUDA REQUIRED)
 set(CUDA_PROPAGATE_HOST_FLAGS OFF)
 SET(CUDA_HOST_COMPILER /usr/bin/g++)
 LIST(APPEND CUDA_NVCC_FLAGS "--compiler-options -fno-strict-aliasing -use_fast_math")
@@ -90,10 +90,10 @@ src/cuda/Cuda.cu
 target_link_libraries(${PROJECT_NAME}
 ${OpenCV_LIBS}
 ${EIGEN3_LIBS}
+${CUDA_LIBRARIES}
 ${Pangolin_LIBRARIES}
 ${PROJECT_SOURCE_DIR}/Thirdparty/DBoW2/lib/libDBoW2.so
 ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o.so
-nvToolsExt
 )
 
 install(TARGETS ${PROJECT_NAME} DESTINATION lib)
@@ -105,16 +105,16 @@ else ()
 message(STATUS "Build examples")
 
 add_executable(rgbd_tum Examples/RGB-D/rgbd_tum.cc)
-target_link_libraries(rgbd_tum ${PROJECT_NAME})
+target_link_libraries(rgbd_tum ${PROJECT_NAME}  ${CUDA_LIBRARIES})
 
 add_executable(stereo_kitti Examples/Stereo/stereo_kitti.cc)
-target_link_libraries(stereo_kitti ${PROJECT_NAME})
+target_link_libraries(stereo_kitti ${PROJECT_NAME}  ${CUDA_LIBRARIES})
 
 add_executable(mono_tum Examples/Monocular/mono_tum.cc)
-target_link_libraries(mono_tum ${PROJECT_NAME})
+target_link_libraries(mono_tum ${PROJECT_NAME}  ${CUDA_LIBRARIES})
 
 add_executable(mono_kitti Examples/Monocular/mono_kitti.cc)
-target_link_libraries(mono_kitti ${PROJECT_NAME})
+target_link_libraries(mono_kitti ${PROJECT_NAME}  ${CUDA_LIBRARIES})
 
 endif() # Build Examples
 
