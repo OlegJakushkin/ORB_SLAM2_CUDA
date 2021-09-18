@@ -98,10 +98,6 @@ ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o.so
 
 install(TARGETS ${PROJECT_NAME} DESTINATION lib)
 
-# Build examples
-if(NO_EXAMPLES)
-message(STATUS "Don't build examples")
-else ()
 message(STATUS "Build examples")
 
 add_executable(rgbd_tum Examples/RGB-D/rgbd_tum.cc)
@@ -116,7 +112,7 @@ target_link_libraries(mono_tum ${PROJECT_NAME}  ${CUDA_LIBRARIES})
 add_executable(mono_kitti Examples/Monocular/mono_kitti.cc)
 target_link_libraries(mono_kitti ${PROJECT_NAME}  ${CUDA_LIBRARIES})
 
-endif() # Build Examples
+add_executable(tx1  gpu/tx1.cpp)
+target_link_libraries(tx1 ${PROJECT_NAME}  ${CUDA_LIBRARIES})
 
 unset(CMAKE_RUNTIME_OUTPUT_DIRECTORY)
-add_subdirectory(gpu)
