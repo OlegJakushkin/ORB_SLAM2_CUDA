@@ -16,7 +16,7 @@ RUN apt-get install -y python3-dev
 #RUN pip3 install numpy
 ARG CMAKE_VERSION=3.21.0
 
-RUN wget https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-Linux-x86_64.sh \
+RUN  apt update && apt install && wget https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-Linux-x86_64.sh \
       -q -O /tmp/cmake-install.sh \
       && chmod u+x /tmp/cmake-install.sh \
       && mkdir /usr/bin/cmake \
