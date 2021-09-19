@@ -72,7 +72,7 @@ int main(int argc, char **argv)
     for(int ni=0; ni<nImages; ni++)
     {
         // Read image from file
-        im = cv::imread(vstrImageFilenames[ni], IMAGE_UNCHANGED);
+        im = cv::imread(vstrImageFilenames[ni], IMREAD_UNCHANGED);
         double tframe = vTimestamps[ni];
 
         if(im.empty())
