@@ -20,7 +20,7 @@ RUN  apt update && apt install && wget https://github.com/Kitware/CMake/releases
       -q -O /tmp/cmake-install.sh \
       && chmod u+x /tmp/cmake-install.sh \
       && mkdir /usr/bin/cmake \
-      && /tmp/cmake-install.sh --skip-license --prefix=/usr/bin/cmake \
+      ; /tmp/cmake-install.sh --skip-license --prefix=/usr/bin/cmake \
       && rm /tmp/cmake-install.sh
 
 RUN     cd ~ && \ 
