@@ -101,43 +101,58 @@ install(TARGETS ${PROJECT_NAME} DESTINATION lib)
 message(STATUS "Build examples")
 
 add_executable(rgbd_tum Examples/RGB-D/rgbd_tum.cc)
-target_link_libraries(rgbd_tum ${PROJECT_NAME}  ${EIGEN3_LIBS}
-${CUDA_LIBRARIES}
-${OpenCV_LIBS}
-${Pangolin_LIBRARIES}
-${PROJECT_SOURCE_DIR}/Thirdparty/DBoW2/lib/libDBoW2.so
-${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o.so)
+target_link_libraries(rgbd_tum
+  ${EIGEN3_LIBS}
+  ${CUDA_LIBRARIES}
+  ${OpenCV_LIBS}
+  ${Pangolin_LIBRARIES}
+  ${PROJECT_SOURCE_DIR}/Thirdparty/DBoW2/lib/libDBoW2.so
+  ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o.so
+  ${PROJECT_NAME}
+)
 
 add_executable(stereo_kitti Examples/Stereo/stereo_kitti.cc)
-target_link_libraries(stereo_kitti ${PROJECT_NAME}  ${EIGEN3_LIBS}
-${CUDA_LIBRARIES}
-${OpenCV_LIBS}
-${Pangolin_LIBRARIES}
-${PROJECT_SOURCE_DIR}/Thirdparty/DBoW2/lib/libDBoW2.so
-${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o.so)
+target_link_libraries(stereo_kitti   
+  ${EIGEN3_LIBS}
+  ${CUDA_LIBRARIES}
+  ${OpenCV_LIBS}
+  ${Pangolin_LIBRARIES}
+  ${PROJECT_SOURCE_DIR}/Thirdparty/DBoW2/lib/libDBoW2.so
+  ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o.so
+  ${PROJECT_NAME}
+)
 
 add_executable(mono_tum Examples/Monocular/mono_tum.cc)
-target_link_libraries(mono_tum ${PROJECT_NAME}  ${EIGEN3_LIBS}
-${CUDA_LIBRARIES}
-${OpenCV_LIBS}
-${Pangolin_LIBRARIES}
-${PROJECT_SOURCE_DIR}/Thirdparty/DBoW2/lib/libDBoW2.so
-${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o.so)
+target_link_libraries(mono_tum  
+  ${EIGEN3_LIBS}
+  ${CUDA_LIBRARIES}
+  ${OpenCV_LIBS}
+  ${Pangolin_LIBRARIES}
+  ${PROJECT_SOURCE_DIR}/Thirdparty/DBoW2/lib/libDBoW2.so
+  ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o.so
+  ${PROJECT_NAME}
+)
 
 add_executable(mono_kitti Examples/Monocular/mono_kitti.cc)
-target_link_libraries(mono_kitti ${PROJECT_NAME} ${EIGEN3_LIBS}
-${CUDA_LIBRARIES}
-${OpenCV_LIBS}
-${Pangolin_LIBRARIES}
-${PROJECT_SOURCE_DIR}/Thirdparty/DBoW2/lib/libDBoW2.so
-${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o.so)
+target_link_libraries(mono_kitti 
+  ${EIGEN3_LIBS}
+  ${CUDA_LIBRARIES}
+  ${OpenCV_LIBS}
+  ${Pangolin_LIBRARIES}
+  ${PROJECT_SOURCE_DIR}/Thirdparty/DBoW2/lib/libDBoW2.so
+  ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o.so
+  ${PROJECT_NAME}
+)
 
 add_executable(tx1  gpu/tx1.cpp)
-target_link_libraries(tx1 ${PROJECT_NAME}  ${EIGEN3_LIBS}
-${CUDA_LIBRARIES}
-${OpenCV_LIBS}
-${Pangolin_LIBRARIES}
-${PROJECT_SOURCE_DIR}/Thirdparty/DBoW2/lib/libDBoW2.so
-${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o.so)
+target_link_libraries(tx1
+  ${EIGEN3_LIBS}
+  ${CUDA_LIBRARIES}
+  ${OpenCV_LIBS}
+  ${Pangolin_LIBRARIES}
+  ${PROJECT_SOURCE_DIR}/Thirdparty/DBoW2/lib/libDBoW2.so
+  ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o.so
+  ${PROJECT_NAME}
+)
 
 unset(CMAKE_RUNTIME_OUTPUT_DIRECTORY)
