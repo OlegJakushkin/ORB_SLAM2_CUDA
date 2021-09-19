@@ -14,6 +14,14 @@ RUN apt-get install -y python-dev python-numpy
 
 RUN apt-get install -y python3-dev
 #RUN pip3 install numpy
+ARG CMAKE_VERSION=3.21.0
+
+RUN wget https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-Linux-x86_64.sh \
+      -q -O /tmp/cmake-install.sh \
+      && chmod u+x /tmp/cmake-install.sh \
+      && mkdir /usr/bin/cmake \
+      && /tmp/cmake-install.sh --skip-license --prefix=/usr/bin/cmake \
+      && rm /tmp/cmake-install.sh
 
 RUN     cd ~ && \ 
     git clone https://github.com/Itseez/opencv.git && \
@@ -56,7 +64,10 @@ RUN cd /tmp && git clone https://github.com/stevenlovegrove/Pangolin && \
     make -j$nproc && make install && \
     cd / && rm -rf /tmp/Pangolin
 
+
+
+
 RUN git clone --recursive https://github.com/OlegJakushkin/ORB_SLAM2_CUDA.git &&\
-cd ORB_SLAM2_CUDA &&\
-chmod +x build.sh &&\
+ cd ORB_SLAM2_CUDA &&\
+ chmod +x build.sh &&\
 ./build.sh
