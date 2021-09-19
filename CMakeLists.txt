@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8)
-project(ORB_SLAM2_CUDA)
+project(ORB_SLAM2_CUDA LANGUAGES CUDA CXX)
 
 IF(NOT CMAKE_BUILD_TYPE)
   SET(CMAKE_BUILD_TYPE Release)
@@ -16,7 +16,9 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 LIST(APPEND CMAKE_C_FLAGS "-Wall -Wextra -DUSE_NVTX")
 LIST(APPEND CMAKE_CXX_FLAGS "-Wall -Wextra -DUSE_NVTX")
 
-find_package(CUDA REQUIRED)
+FindCUDA()
+FindCUDAToolkit()
+
 set(CUDA_PROPAGATE_HOST_FLAGS OFF)
 SET(CUDA_HOST_COMPILER /usr/bin/g++)
 LIST(APPEND CUDA_NVCC_FLAGS "--compiler-options -fno-strict-aliasing -use_fast_math")
@@ -59,6 +61,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
 
 cuda_include_directories(
    ${PROJECT_SOURCE_DIR}/cuda-samples/Common
+   ${CUDAToolkit_INCLUDE_DIRS}
 )
 
 cuda_add_library(${PROJECT_NAME} SHARED
@@ -94,6 +97,7 @@ ${OpenCV_LIBS}
 ${Pangolin_LIBRARIES}
 ${PROJECT_SOURCE_DIR}/Thirdparty/DBoW2/lib/libDBoW2.so
 ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o.so
+CUDA::nvToolsExt
 )
 
 install(TARGETS ${PROJECT_NAME} DESTINATION lib)
