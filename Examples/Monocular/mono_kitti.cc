@@ -27,7 +27,6 @@
 #include<iomanip>
 
 #include<opencv2/core/core.hpp>
-#include<opencv2/imgcodecs/legacy/constants_c.h>
 
 #include"System.h"
 #include <Utils.hpp>
@@ -71,7 +70,7 @@ int main(int argc, char **argv)
     for(int ni=0; ni<nImages; ni++)
     {
         // Read image from file
-        im = cv::imread(vstrImageFilenames[ni],CV_LOAD_IMAGE_UNCHANGED);
+        im = cv::imread(vstrImageFilenames[ni],IMAGE_UNCHANGED);
         double tframe = vTimestamps[ni];
 
         if(im.empty())
