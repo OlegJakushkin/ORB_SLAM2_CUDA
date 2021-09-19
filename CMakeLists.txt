@@ -41,7 +41,7 @@ endif()
 
 LIST(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake_modules)
 
-find_package(OpenCV 4 QUIET)
+find_package(OpenCV  QUIET)
 find_package(Eigen3 3.1.0 REQUIRED)
 find_package(Pangolin REQUIRED)
 
@@ -88,9 +88,9 @@ src/cuda/Cuda.cu
 )
 
 target_link_libraries(${PROJECT_NAME}
-${OpenCV_LIBS}
 ${EIGEN3_LIBS}
 ${CUDA_LIBRARIES}
+${OpenCV_LIBS}
 ${Pangolin_LIBRARIES}
 ${PROJECT_SOURCE_DIR}/Thirdparty/DBoW2/lib/libDBoW2.so
 ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o.so

@@ -16,8 +16,8 @@ RUN apt-get install -y python3-dev
 #RUN pip3 install numpy
 
 RUN     cd ~ && \ 
-    git clone -b 3.4 https://github.com/Itseez/opencv.git && \
-    git clone -b 3.4 https://github.com/Itseez/opencv_contrib.git && \
+    git clone https://github.com/Itseez/opencv.git && \
+    git clone https://github.com/Itseez/opencv_contrib.git && \
     cd ~/opencv && \
     mkdir build && \
     cd build && \
