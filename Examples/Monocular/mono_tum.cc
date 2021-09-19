@@ -26,7 +26,8 @@
 #include<chrono>
 
 #include<opencv2/core/core.hpp>
-
+#include <opencv2/imgcodecs.hpp>
+#include <opencv2/imgproc/imgproc_c.h>
 #include<System.h>
 
 using namespace std;
