@@ -14,13 +14,13 @@ RUN apt-get install -y python-dev python-numpy
 
 RUN apt-get install -y python3-dev
 #RUN pip3 install numpy
-ARG CMAKE_VERSION=3.21.0
+ARG 
 
-RUN  apt update && apt install && wget https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-Linux-x86_64.sh \
+RUN export CMAKE_VERSION=3.21.2 apt update && apt install -y wget  && wget https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-Linux-x86_64.sh \
       -q -O /tmp/cmake-install.sh \
       && chmod u+x /tmp/cmake-install.sh \
       && mkdir /usr/bin/cmake \
-      ; /tmp/cmake-install.sh --skip-license --prefix=/usr/bin/cmake \
+      ; /tmp/cmake-install.sh --skip-license --prefix=/usr/ \
       && rm /tmp/cmake-install.sh
 
 RUN     cd ~ && \ 
