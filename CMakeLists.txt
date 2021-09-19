@@ -16,8 +16,11 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3")
 LIST(APPEND CMAKE_C_FLAGS "-Wall -Wextra -DUSE_NVTX")
 LIST(APPEND CMAKE_CXX_FLAGS "-Wall -Wextra -DUSE_NVTX")
 
-FindCUDA()
-FindCUDAToolkit()
+include(FindCUDAToolkit)
+include(FindCUDA)
+
+enable_language(CUDA)
+
 
 set(CUDA_PROPAGATE_HOST_FLAGS OFF)
 SET(CUDA_HOST_COMPILER /usr/bin/g++)
