@@ -7,7 +7,7 @@ mkdir -p build
 cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release
 make -j$(nproc)
-
+make install
 cd ../../g2o
 
 echo "Configuring and building Thirdparty/g2o ..."
@@ -17,7 +17,7 @@ cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release
 
 make -j$(nproc)
-
+make install
 cd ../../../
 
 echo "Uncompress vocabulary ..."
