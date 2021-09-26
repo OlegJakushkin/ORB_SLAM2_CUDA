@@ -63,5 +63,5 @@ RUN git clone --recursive https://github.com/OlegJakushkin/ORB_SLAM2_CUDA.git &&
  chmod +x build.sh &&\
 ./build.sh
 
-RUN export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib/:/headless/ORB_SLAM2_CUDA/Thirdparty/DBoW2/lib/:/headless/ORB_SLAM2_CUDA/Thirdparty/g2o/lib/:/usr/lib/x86_64-linux-gnu/ \
-    ./mono_tum /headless/ORB_SLAM2_CUDA/Vocabulary/ORBvoc.txt /headless/ORB_SLAM2_CUDA/Examples/Monocular/TUM1.yaml /headless/Downloads/rgbd_dataset_freiburg1_desk/rgb/
+#RUN  cd ORB_SLAM2_CUDA/build/ && export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib/:/headless/ORB_SLAM2_CUDA/Thirdparty/DBoW2/lib/:/headless/ORB_SLAM2_CUDA/Thirdparty/g2o/lib/:/usr/lib/x86_64-linux-gnu/ && \
+#    ./mono_tum /headless/ORB_SLAM2_CUDA/Vocabulary/ORBvoc.txt /headless/ORB_SLAM2_CUDA/Examples/Monocular/TUM1.yaml /headless/Downloads/rgbd_dataset_freiburg1_desk/rgb/ 0
